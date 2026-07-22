@@ -1,0 +1,8 @@
+{
+  "crons": [
+    {
+      "path": "/api/coletor_job",
+      "schedule": "0 2 * * *"
+    }
+  ]
+}
