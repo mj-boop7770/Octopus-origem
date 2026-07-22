@@ -1,3 +1,27 @@
+-- Table des prix de produits (remplace le stockage precos.json)
+CREATE TABLE IF NOT EXISTS precos (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    pais TEXT NOT NULL,
+    bandeira TEXT,
+    produto TEXT NOT NULL,
+    categoria TEXT DEFAULT 'Agrícola',
+    preco_produtor REAL,
+    unidade_produtor TEXT,
+    preco_produtor_usd_kg REAL,
+    preco_export REAL,
+    preco_export_max REAL,
+    unidade_export TEXT,
+    campanha TEXT,
+    compradores TEXT,
+    fonte TEXT,
+    link TEXT,
+    fiabilidade TEXT DEFAULT 'Oficial',
+    estatuto TEXT DEFAULT 'Completo',
+    nota TEXT,
+    link_compradores TEXT,
+    date_mise_a_jour DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
 -- Table principale des acteurs commerciaux
 CREATE TABLE IF NOT EXISTS actores (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -33,7 +57,7 @@ CREATE TABLE IF NOT EXISTS audit_log (
     date_action DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
--- Vue dynamique pour calculer le niveau de confiance
+-- Vue dynamique pour calculer le niveau de confiance des acteurs
 CREATE VIEW IF NOT EXISTS v_actores_confianca AS
 SELECT 
     a.id,
@@ -55,3 +79,4 @@ SELECT
 FROM actores a
 LEFT JOIN verifications v ON a.id = v.acteur_id
 GROUP BY a.id;
+    
