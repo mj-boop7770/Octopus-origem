@@ -79,4 +79,3 @@ SELECT
 FROM actores a
 LEFT JOIN verifications v ON a.id = v.acteur_id
 GROUP BY a.id;
-    
