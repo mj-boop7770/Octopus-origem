@@ -1,7 +1,2 @@
 name = "octopus-origem"
 pages_build_output_dir = "./"
-
-[[d1_databases]]
-binding = "DB"
-database_name = "origeme2_db"
-database_id = "586d4dcc-423c-40d2-bd06-0b1fb539ef18"
